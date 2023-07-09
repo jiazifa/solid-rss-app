@@ -11,12 +11,18 @@ dependencies:
   '@solidjs/router':
     specifier: ^0.8.2
     version: 0.8.2(solid-js@1.7.2)
+  solid-icons:
+    specifier: ^1.0.11
+    version: 1.0.11(solid-js@1.7.2)
   solid-js:
     specifier: ^1.7.2
     version: 1.7.2
   solid-start:
     specifier: ^0.2.26
     version: 0.2.26(@solidjs/meta@0.28.2)(@solidjs/router@0.8.2)(solid-js@1.7.2)(solid-start-node@0.2.19)(vite@4.1.4)
+  solid-zustand:
+    specifier: ^1.7.0
+    version: 1.7.0(solid-js@1.7.2)(zustand@4.3.9)
   undici:
     specifier: ^5.15.1
     version: 5.15.1
@@ -3046,6 +3052,15 @@ packages:
       mrmime: 1.0.1
       totalist: 3.0.1
 
+  /solid-icons@1.0.11(solid-js@1.7.2):
+    resolution: {integrity: sha512-shEL5Otrl73LPZukpanJKi6ISnQhpIvhqqAb8haKyCGrixHOYC6yGfNkSE7jpkKSikZ0rGtSMRiFETRrec2Uzw==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      solid-js: '*'
+    dependencies:
+      solid-js: 1.7.2
+    dev: false
+
   /solid-js@1.7.2:
     resolution: {integrity: sha512-01f8GIc+HTTlfDXtK+TFku3AllHyJ3hNsIpxM2qpObRP4VbEGVIP6VbULnThPlpse+J1y/I/1N9QeQ9MNkE8Ow==}
     dependencies:
@@ -3155,6 +3170,16 @@ packages:
       wait-on: 6.0.1(debug@4.3.4)
     transitivePeerDependencies:
       - supports-color
+
+  /solid-zustand@1.7.0(solid-js@1.7.2)(zustand@4.3.9):
+    resolution: {integrity: sha512-BWLSYIUOr7qhAdY+IFh1fA3+s6LvqQuxmHgzuZ8BQHHBcoq/a1S+lgDbWQmFF8fhmJyXHbSbp/WlPJgvdjmSiw==}
+    peerDependencies:
+      solid-js: ^1.6.0
+      zustand: ^4.3.0
+    dependencies:
+      solid-js: 1.7.2
+      zustand: 4.3.9(react@18.2.0)
+    dev: false
 
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}

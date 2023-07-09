@@ -1,6 +1,5 @@
-import { create } from "zustand";
+import create from "solid-zustand";
 import { persist, devtools } from "zustand/middleware";
-import { immer } from "zustand/middleware/immer";
 
 // 标记状态
 export interface ReadingState {
@@ -37,34 +36,34 @@ interface RssStore {
 
   insert: (item: Rss) => void;
 
-  remove: (item: Rss) => void;
+  remove: (uuid: string) => void;
 }
 
 export const useRssStore = create<RssStore>()(
   devtools(
     persist(
-      immer((set, get) => ({
+      (set, get) => ({
         entities: {},
         state: {} as ReadingState,
 
         // actions
-        updateState: (updater) =>
-          set((state) => {
-            const newState = { ...state };
-            updater(newState);
-            return newState;
-          }),
+        updateState: (updater) => {
+          const newState = { ...get().state };
+          updater(newState);
+          set({ state: newState });
+        },
 
         insert: (item) =>
-          set((state) => ({
-            entities: { ...state.entities, [item.uuid]: item },
+          set((store) => ({
+            entities: { ...store.entities, [item.uuid]: item },
           })),
 
-        remove: (item) =>
-          set((state) => ({
-            entities: { ...state.entities, [item.uuid]: null },
-          })),
-      })),
+        remove: (uuid) => {
+          const newEntities = { ...get().entities };
+          delete newEntities[uuid];
+          set({ entities: newEntities });
+        },
+      }),
       { name: "rss", version: 1 }
     )
   )
