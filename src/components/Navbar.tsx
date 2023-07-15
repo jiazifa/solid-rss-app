@@ -1,3 +1,4 @@
+import { AiFillBook } from "solid-icons/ai";
 import { JSX, createSignal } from "solid-js";
 
 export interface NavbarLinkItem {
@@ -40,7 +41,8 @@ const Navbar = ({ links, active }: { links: NavbarLinkItem[], active?: string })
         <nav class="navbar is-transparent">
             <div class="navbar-brand">
                 <a class="navbar-item" href="#">
-                    <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                    <AiFillBook />
+                    {/* <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" /> */}
                 </a>
                 <div class={`navbar-burger ${burgerOpen() ? 'is-active' : ''}`}
                     data-target="navbarTransparent"
@@ -72,14 +74,7 @@ const Navbar = ({ links, active }: { links: NavbarLinkItem[], active?: string })
                                     </span>
                                 </a>
                             </p>
-                            <p class="control">
-                                <a class="button is-primary" href="#">
-                                    <span class="icon">
-                                        <i class="fas fa-download"></i>
-                                    </span>
-                                    <span>Download</span>
-                                </a>
-                            </p>
+
                         </div>
                     </div>
                 </div>
